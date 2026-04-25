@@ -1,0 +1,15 @@
+# Disable Directory Listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^\.|\.md$|config_prod\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Handle CORS Preflight for PHP scripts
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>

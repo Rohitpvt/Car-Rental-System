@@ -1,0 +1,61 @@
+# Build and distribution
+node_modules/
+dist/
+build/
+bin/
+obj/
+
+# Environment and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config_prod.php
+backend/config/database.php
+
+# PHP related
+vendor/
+composer.lock
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Uploads and temporary data
+uploads/*
+!uploads/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+scratch/
+test_assets/
+*.jpg
+*.jpeg
+*.png
+*.pdf
+
+# Project specific scripts that shouldn't be on GitHub
+production_backend/
+export_sql.php
+hostinger_database.sql
+absolute_correctness.php
+super_stable_fix.php
+update_users_for_kyc.php
+update_users_kyc.php
+update_users_table.php
+fix_fleet_mapping.php
+fix_rolls_royce.php
+seed_bookings.php
+seed_fleet.php
+setup_db.php
+fix_3_broken.php
+capture.py
+test_img1.jpg
+test_img2.jpg
+test_img3.jpg
+test_ins.pdf
+test_puc.pdf
+test_rc.pdf

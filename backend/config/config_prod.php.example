@@ -1,0 +1,16 @@
+<?php
+/**
+ * config_prod.php
+ * 
+ * Instructions:
+ * 1. Copy this file to 'config_prod.php' in the same directory.
+ * 2. Replace the placeholders below with your actual Hostinger database credentials.
+ * 3. The Database class in database.php will automatically detect and use these settings.
+ */
+
+return [
+    'host'     => 'localhost',             // Usually 'localhost' on Hostinger
+    'db_name'  => 'YOUR_DATABASE_NAME',    // e.g. u123456789_car_rental
+    'username' => 'YOUR_DATABASE_USER',    // e.g. u123456789_admin
+    'password' => 'YOUR_DATABASE_PASS',    // Your DB password
+];

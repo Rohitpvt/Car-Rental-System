@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {}
+
+@layer base {
+  body {
+    @apply bg-background text-text_primary font-sans antialiased;
+  }
+
+  /* Global Accessibility Focus States */
+  :focus-visible {
+    @apply ring-2 ring-primary/30 outline-none !important;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary text-white font-bold py-4 px-6 rounded-lg shadow-sm transition-all duration-200 ease-in-out hover:bg-blue-700 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white font-bold py-4 px-6 rounded-lg shadow-sm transition-all duration-200 ease-in-out hover:bg-violet-700 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-text_primary font-bold py-4 px-6 rounded-lg border border-slate-200 transition-all duration-200 ease-in-out hover:bg-slate-50 hover:border-slate-300 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-text_secondary font-bold py-2 px-4 rounded-lg transition-all duration-200 ease-in-out hover:bg-slate-100 hover:text-text_primary active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  /* Inputs */
+  .form-input {
+    @apply w-full bg-slate-50 border border-slate-200 text-text_primary text-sm font-medium rounded-lg px-6 py-4 transition-all duration-200 ease-in-out outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white;
+  }
+  
+  .form-label {
+    @apply block text-xs font-black text-text_secondary uppercase tracking-[0.1em] mb-4 ml-2;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-surface border border-slate-200 rounded-xl shadow-sm transition-all duration-200 ease-in-out;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-md hover:border-slate-300;
+  }
+  
+  .card-interactive {
+    @apply card-hover cursor-pointer active:scale-[0.98];
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full bg-slate-100 text-[10px] font-black uppercase tracking-widest leading-none;
+  }
+  
+  .badge-primary {
+    @apply badge bg-blue-50 text-primary border border-blue-100/50;
+  }
+  
+  .badge-success {
+    @apply badge bg-emerald-50 text-emerald-600 border border-emerald-100/50;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-violet-50 text-secondary border border-violet-100/50;
+  }
+  
+  .badge-error {
+    @apply badge bg-red-50 text-error border border-red-100/50;
+  }
+
+  /* Floating Labels & Forms */
+  .floating-label-group {
+    @apply relative mb-6;
+  }
+
+  .floating-label-input {
+    @apply w-full bg-white border border-slate-200 text-text_primary text-sm font-bold rounded-lg px-6 py-4 pt-6 transition-all duration-200 ease-in-out outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary placeholder-transparent;
+  }
+
+  .floating-label {
+    @apply absolute left-6 top-1/2 -translate-y-1/2 text-sm font-bold text-text_secondary transition-all duration-200 pointer-events-none origin-left;
+  }
+
+  .peer:focus ~ .floating-label,
+  .peer:not(:placeholder-shown) ~ .floating-label {
+    @apply -translate-y-[1.6rem] scale-[0.8] text-primary font-black uppercase tracking-[0.15em] opacity-80;
+  }
+
+  /* Animations */
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-200 hover:shadow-md cursor-pointer;
+  }
+
+  .skeleton-shimmer {
+    @apply relative overflow-hidden bg-slate-100 rounded-lg isolate border border-slate-100;
+  }
+
+  .skeleton-shimmer::after {
+    @apply absolute inset-0 -translate-x-full content-[''] z-10;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    animation: shimmer 1.8s infinite;
+  }
+
+  /* Marketplace Specifics */
+  .pill-filter {
+    @apply flex items-center gap-2 px-6 py-4 text-xs font-black text-text_secondary border border-slate-200 rounded-lg transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 cursor-pointer whitespace-nowrap uppercase tracking-widest;
+  }
+
+  .pill-filter-active {
+    @apply bg-primary text-white border-primary hover:bg-blue-700 hover:border-blue-700 shadow-sm hover:shadow-md;
+  }
+
+  .marketplace-card {
+    @apply bg-surface border border-slate-100 rounded-xl overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md hover:border-slate-200;
+  }
+
+  .image-container {
+    @apply aspect-[4/3] bg-slate-50 relative overflow-hidden flex items-center justify-center;
+  }
+
+  .spec-icon-row {
+    @apply flex items-center gap-4 py-4 border-y border-slate-50/80 my-4 text-[11px] font-black text-text_secondary uppercase tracking-widest;
+  }
+
+  /* Dashboard Admin Panel */
+  .dashboard-sidebar {
+    @apply h-screen sticky top-0 bg-slate-900 text-slate-300 w-72 hidden xl:flex flex-col border-r border-slate-800 transition-all duration-200;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-4 px-8 py-4 text-sm font-black transition-all duration-200 hover:bg-slate-800/80 hover:text-white border-l-4 border-transparent cursor-pointer uppercase tracking-widest opacity-60;
+  }
+
+  .sidebar-item-active {
+    @apply bg-slate-800 text-white border-primary opacity-100;
+  }
+
+  .table-zebra tbody tr:nth-child(even) {
+    @apply bg-slate-50/80;
+  }
+
+  .table-zebra tbody tr {
+    @apply transition-colors duration-200 hover:bg-blue-50/40;
+  }
+
+  .stat-card {
+    @apply bg-white border border-slate-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .profile-dropdown {
+    @apply absolute right-0 mt-4 w-56 bg-white border border-slate-100 rounded-xl shadow-lg py-4 z-modal animate-fade-in;
+  }
+
+  /* Form UX Enhancements */
+  .input-icon-group {
+    @apply relative flex items-center;
+  }
+
+  .input-icon {
+    @apply absolute left-4 text-slate-400 w-4 h-4 transition-colors duration-200 pointer-events-none;
+  }
+
+  .floating-label-input:focus ~ .input-icon {
+    @apply text-primary;
+  }
+
+  .floating-label-input-with-icon {
+    @apply pl-8;
+  }
+
+  .form-section-header {
+    @apply text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 mb-6 flex items-center gap-4 ml-2;
+  }
+
+  .form-section-header::after {
+    @apply content-[''] flex-1 h-px bg-slate-100;
+  }
+
+  .error-message {
+    @apply text-[10px] font-black text-red-500 mt-2 ml-2 animate-fade-in tracking-wider uppercase;
+  }
+
+  .input-error-border {
+    @apply border-red-200 bg-red-50/50 !important;
+  }
+
+  /* Booking Modal Redesign */
+  .glass-modal {
+    @apply bg-white border border-slate-200 shadow-lg relative rounded-xl;
+  }
+
+  .price-row {
+    @apply flex items-center justify-between py-2 text-sm;
+  }
+
+  .price-label {
+    @apply font-black text-text_secondary uppercase tracking-widest text-[10px];
+  }
+
+  .price-value {
+    @apply font-black text-text_primary;
+  }
+
+  /* DatePicker Saas Theme Overrides */
+  .react-datepicker {
+    @apply border-slate-200 shadow-lg rounded-xl p-4 font-sans !important;
+  }
+
+  .react-datepicker__header {
+    @apply bg-white border-none pb-4 !important;
+  }
+
+  .react-datepicker__day--selected {
+    @apply bg-primary rounded-lg font-black !important;
+  }
+
+  .react-datepicker__day:hover {
+    @apply bg-slate-100 rounded-lg transition-colors duration-200 !important;
+  }
+
+  .react-datepicker__triangle {
+    @apply hidden !important;
+  }
+}
